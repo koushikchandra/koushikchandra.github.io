@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Koushik Howlader</title>
+<meta name="description" content="Koushik Howlader — PhD student, Computer Science, Iowa State University">
+<style>
+  :root{
+    --bg:#ffffff;
+    --bg-alt:#f5f7fa;
+    --text:#1b2430;
+    --text-dim:#5a6472;
+    --border:#e3e7ec;
+    --accent:#1565c0;
+    --accent-dim:#e8f0fc;
+    --tag-bg:#eef2f7;
+  }
+  :root[data-theme="dark"]{
+    --bg:#12161c;
+    --bg-alt:#181d25;
+    --text:#e7ebf1;
+    --text-dim:#9aa5b1;
+    --border:#2a313c;
+    --accent:#5b9bf0;
+    --accent-dim:#1c2733;
+    --tag-bg:#1d232c;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+  }
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  header.nav{
+    position:sticky;top:0;z-index:10;
+    background:var(--bg);
+    border-bottom:1px solid var(--border);
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0.9rem 1.5rem;
+  }
+  .nav .brand{font-weight:700;font-size:1.05rem}
+  .nav ul{list-style:none;display:flex;gap:1.4rem;margin:0;padding:0}
+  .nav ul a{color:var(--text);font-size:0.95rem}
+  .nav ul a:hover{color:var(--accent);text-decoration:none}
+  .theme-toggle{
+    border:1px solid var(--border);
+    background:var(--bg-alt);
+    color:var(--text);
+    border-radius:999px;
+    padding:0.35rem 0.7rem;
+    cursor:pointer;
+    font-size:0.85rem;
+  }
+  .nav-inner{display:flex;align-items:center;gap:2rem}
+
+  main{max-width:840px;margin:0 auto;padding:0 1.5rem}
+
+  section.hero{
+    display:flex;gap:2rem;align-items:center;
+    padding:3.5rem 0 2.5rem;
+    flex-wrap:wrap;
+  }
+  .avatar{
+    width:120px;height:120px;border-radius:50%;
+    background:var(--accent);
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:2.4rem;font-weight:700;
+    flex-shrink:0;
+  }
+  .hero-text h1{margin:0 0 0.2rem;font-size:2rem}
+  .hero-text .role{color:var(--text-dim);font-size:1.05rem;margin:0 0 0.9rem}
+  .links{display:flex;gap:1rem;flex-wrap:wrap;font-size:0.95rem}
+  .links a{
+    border:1px solid var(--border);
+    padding:0.3rem 0.8rem;
+    border-radius:999px;
+    color:var(--text);
+  }
+  .links a:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
+
+  section{padding:2.2rem 0;border-top:1px solid var(--border)}
+  section h2{
+    font-size:0.8rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin:0 0 1.1rem;
+  }
+  .entry{margin-bottom:1.3rem}
+  .entry:last-child{margin-bottom:0}
+  .entry-row{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+  .entry-title{font-weight:600}
+  .entry-org{color:var(--text-dim)}
+  .entry-date{color:var(--text-dim);font-size:0.9rem;white-space:nowrap}
+  .entry ul{margin:0.4rem 0 0;padding-left:1.2rem;color:var(--text-dim);font-size:0.95rem}
+  .entry ul li{margin-bottom:0.2rem}
+
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0.9rem}
+  .skill-card{background:var(--bg-alt);border:1px solid var(--border);border-radius:10px;padding:0.9rem 1rem}
+  .skill-card h3{margin:0 0 0.35rem;font-size:0.9rem}
+  .skill-card p{margin:0;color:var(--text-dim);font-size:0.88rem}
+
+  .pub{border-left:3px solid var(--accent);padding-left:0.9rem;margin-bottom:1rem}
+  .pub .venue{color:var(--accent);font-weight:600;font-size:0.85rem}
+
+  .tags{display:flex;flex-wrap:wrap;gap:0.5rem}
+  .tag{background:var(--tag-bg);color:var(--text-dim);font-size:0.82rem;padding:0.3rem 0.7rem;border-radius:999px}
+
+  footer{
+    text-align:center;
+    color:var(--text-dim);
+    font-size:0.85rem;
+    padding:2.5rem 1.5rem 3rem;
+  }
+
+  @media (max-width:560px){
+    .nav ul{display:none}
+    section.hero{padding-top:2.2rem}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <span class="brand">Koushik Howlader</span>
+    <ul>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙 Dark</button>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="avatar">KH</div>
+    <div class="hero-text">
+      <h1>Koushik Howlader</h1>
+      <p class="role">PhD Student, Computer Science &middot; Iowa State University</p>
+      <div class="links">
+        <a href="mailto:howlader@iastate.edu">Email</a>
+        <a href="https://github.com/koushikhowlader" target="_blank" rel="noopener">GitHub</a>
+        <a href="Howlader_Koushik_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      Data scientist and computer science PhD student with experience in large-scale data analysis,
+      machine learning, and data visualization. Skilled in Python, SQL, and analytical tool development
+      for extracting insights from complex datasets. Experienced in building data processing pipelines,
+      validating datasets, and developing visualization tools to support data-driven decision making.
+      Interested in applying data analytics to real-world systems including industrial monitoring and
+      operational analytics.
+    </p>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="entry">
+      <div class="entry-row">
+        <span><span class="entry-title">PhD, Computer Science</span> &middot; <span class="entry-org">Iowa State University</span></span>
+        <span class="entry-date">2023 – Present</span>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="entry-row">
+        <span><span class="entry-title">MS, Computer Science</span> &middot; <span class="entry-org">North Dakota State University</span></span>
+        <span class="entry-date">2023</span>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="entry-row">
+        <span><span class="entry-title">MS, Information Technology</span> &middot; <span class="entry-org">Jahangirnagar University</span></span>
+        <span class="entry-date">2015</span>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="entry-row">
+        <span><span class="entry-title">BS, Information Technology</span> &middot; <span class="entry-org">Jahangirnagar University</span></span>
+        <span class="entry-date">2013</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card"><h3>Programming</h3><p>Python, SQL, C++, R</p></div>
+      <div class="skill-card"><h3>Data Analysis</h3><p>Pandas, NumPy, Scikit-learn, Data Processing Pipelines</p></div>
+      <div class="skill-card"><h3>Visualization</h3><p>Matplotlib, Seaborn, Plotly, Power BI (familiar)</p></div>
+      <div class="skill-card"><h3>Tools</h3><p>Git, Linux, HPC Systems, Jupyter Notebook</p></div>
+      <div class="skill-card"><h3>Machine Learning</h3><p>Deep Learning, Transfer Learning, Predictive Modeling</p></div>
+      <div class="skill-card"><h3>Data Engineering</h3><p>Data validation, dataset monitoring, automated processing</p></div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Research &amp; Data Science Experience</h2>
+
+    <div class="entry">
+      <div class="entry-row">
+        <span class="entry-title">Graduate Research Assistant — AI in Medicine</span>
+        <span class="entry-date">2023 – Present</span>
+      </div>
+      <div class="entry-org">Iowa State University, Iowa, USA</div>
+      <ul>
+        <li>Designed and implemented machine learning pipelines to analyze large-scale biomedical datasets.</li>
+        <li>Built data processing workflows for genomic datasets including mutation and copy number variation data.</li>
+        <li>Developed analytical tools for ranking biological pathways and identifying patterns in large datasets.</li>
+        <li>Created visualizations to interpret model outputs and communicate insights from complex data.</li>
+        <li>Performed extensive dataset validation and preprocessing to ensure data integrity.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-row">
+        <span class="entry-title">Graduate Research Assistant — Machine Learning and Data Analysis</span>
+        <span class="entry-date">2021 – 2023</span>
+      </div>
+      <div class="entry-org">North Dakota State University, North Dakota, USA</div>
+      <ul>
+        <li>Analyzed large-scale histopathology image datasets using machine learning and deep learning models.</li>
+        <li>Implemented data preprocessing pipelines and automated data validation procedures.</li>
+        <li>Conducted statistical analysis and performance evaluation of predictive models.</li>
+        <li>Developed visualization tools to interpret model performance and dataset characteristics.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-row">
+        <span class="entry-title">Data Science Intern</span>
+        <span class="entry-date">May 2023 – Aug 2023</span>
+      </div>
+      <div class="entry-org">Center for Computationally Assisted Science and Technology, North Dakota, USA</div>
+      <ul>
+        <li>Assisted interdisciplinary researchers in analyzing scientific datasets using HPC infrastructure.</li>
+        <li>Optimized data processing workflows for large datasets on high-performance computing clusters.</li>
+        <li>Supported troubleshooting of data processing pipelines and computational tools.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="teaching">
+    <h2>Teaching Experience</h2>
+    <div class="entry">
+      <div class="entry-row">
+        <span class="entry-title">Graduate Teaching Assistant</span> — Computer Science, Iowa State University
+        <span class="entry-date">2023 – Present</span>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="entry-row">
+        <span class="entry-title">Instructor and Teaching Assistant</span> — Computer Science, North Dakota State University
+        <span class="entry-date">2021 – 2023</span>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="entry-row">
+        <span class="entry-title">Assistant Professor</span> — Noakhali Science and Technology University
+        <span class="entry-date">2015 – 2020</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications">
+    <h2>Selected Publications</h2>
+    <div class="pub">
+      <div>Transfer Learning Analysis on Cancer Histopathology Images.</div>
+      <div class="venue">BIBM 2022</div>
+    </div>
+    <div class="pub">
+      <div>Extracting Clinically Relevant Phrases from Patient Notes using BERT.</div>
+      <div class="venue">BIM 2023</div>
+    </div>
+    <div class="pub">
+      <div>Machine Learning Models for Detecting Type 2 Diabetes.</div>
+      <div class="venue">Health Information Science and Systems</div>
+    </div>
+  </section>
+
+  <section id="fellowships">
+    <h2>Fellowships &amp; Memberships</h2>
+    <div class="entry">
+      <div class="entry-row">
+        <span class="entry-title">NSF Data Driven Discovery in Dynamics (D4) NRT Fellowship</span> — Iowa State University
+        <span class="entry-date">2024 – Present</span>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag">IEEE Member</span>
+      <span class="tag">ACM Member</span>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>
+      Email: <a href="mailto:howlader@iastate.edu">howlader@iastate.edu</a><br>
+      Phone: 701-561-3450
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  &copy; <span id="year"></span> Koushik Howlader. Built with a toy static page.
+</footer>
+
+<script>
+  const toggle = document.getElementById('themeToggle');
+  const root = document.documentElement;
+  const stored = localStorage.getItem('theme');
+  if (stored) root.setAttribute('data-theme', stored);
+  function label(){
+    const isDark = root.getAttribute('data-theme') === 'dark';
+    toggle.textContent = isDark ? '☀️ Light' : '🌙 Dark';
+  }
+  label();
+  toggle.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    label();
+  });
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
