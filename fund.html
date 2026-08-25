@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#c8102e">
+<title>Funding Scout — Koushik Howlader</title>
+<meta name="description" content="A personal scout for NIH, NSF, postdoctoral, research, and internship opportunities.">
+<style>
+  :root{--bg:#fff;--bg-alt:#faf7ec;--text:#1b2430;--muted:#5a6472;--border:#ecd9a8;--accent:#c8102e;--accent-soft:#fbe6ea;--gold:#f1be48;--shadow:0 10px 28px rgba(35,25,15,.08)}
+  :root[data-theme="dark"]{--bg:#1a1210;--bg-alt:#221715;--text:#f2e9d8;--muted:#c7ab9a;--border:#3a2420;--accent:#ff5468;--accent-soft:#2e1416;--gold:#f1be48;--shadow:0 10px 28px rgba(0,0,0,.25)}
+  *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+  header{position:sticky;top:0;z-index:3;background:var(--bg);border-bottom:1px solid var(--border);padding:.9rem 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+  .brand{font-weight:700}.nav{display:flex;gap:1rem;align-items:center}.nav a{color:var(--text);font-size:.92rem}.toggle,.button{border:1px solid var(--border);border-radius:999px;background:var(--bg-alt);color:var(--text);padding:.4rem .8rem;cursor:pointer}.button{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:650;padding:.65rem 1rem}.button:disabled{opacity:.6;cursor:wait}
+  main{max-width:980px;margin:0 auto;padding:0 1.5rem}.hero{padding:3.4rem 0 2.4rem}.eyebrow{color:var(--accent);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700}.hero h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;margin:.35rem 0 .8rem}.hero p{max-width:700px;color:var(--muted);font-size:1.05rem;margin:0}
+  section{border-top:1px solid var(--border);padding:2rem 0} section h2{font-size:.82rem;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin:0 0 1rem}
+  .panel{background:var(--bg-alt);border:1px solid var(--border);border-radius:14px;padding:1.2rem;box-shadow:var(--shadow)}.form-grid{display:grid;grid-template-columns:1fr 190px;gap:1rem}.field label{display:block;font-size:.82rem;font-weight:650;margin-bottom:.35rem}.field input,.field select{width:100%;border:1px solid var(--border);border-radius:8px;padding:.65rem .7rem;background:var(--bg);color:var(--text);font:inherit}.actions{display:flex;align-items:center;gap:.8rem;margin-top:1rem;flex-wrap:wrap}.check{font-size:.88rem;color:var(--muted)}.check input{accent-color:var(--accent);margin-right:.35rem}.status{font-size:.88rem;color:var(--muted)}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:1rem}.card{border:1px solid var(--border);border-radius:12px;padding:1.05rem;background:var(--bg)}.card h3{font-size:1rem;margin:0 0 .2rem}.card p{color:var(--muted);font-size:.9rem;margin:.4rem 0 .8rem}.meta{font-size:.78rem;color:var(--muted)}.pill{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:.15rem .5rem;border-radius:999px;font-size:.75rem;font-weight:650}
+  .result{border-left:3px solid var(--accent);padding:.7rem .9rem;background:var(--bg-alt);margin-bottom:.7rem;border-radius:0 8px 8px 0}.result h3{font-size:.96rem;margin:0}.result p{font-size:.85rem;color:var(--muted);margin:.2rem 0}.empty{color:var(--muted);font-size:.9rem}.note{font-size:.82rem;color:var(--muted);margin-top:.8rem}.footer{color:var(--muted);font-size:.82rem;text-align:center;padding:2rem 0 3rem}
+  @media(max-width:650px){.nav a{display:none}.form-grid{grid-template-columns:1fr}.hero{padding-top:2.4rem}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">Koushik Howlader · Funding Scout</div>
+  <nav class="nav"><a href="index.html">Profile</a><button class="toggle" id="themeToggle">🌙 Dark</button></nav>
+</header>
+<main>
+  <div class="hero">
+    <div class="eyebrow">Opportunity finder</div>
+    <h1>Find the next research opportunity.</h1>
+    <p>This scout searches official NIH, NSF, and Grants.gov sources for postdoctoral, research, fellowship, and internship opportunities aligned with your biomedical AI and data-science profile.</p>
+  </div>
+
+  <section id="scout">
+    <h2>Scout settings</h2>
+    <div class="panel">
+      <div class="form-grid">
+        <div class="field"><label for="keywords">Research keywords</label><input id="keywords" value="machine learning biomedical AI genomics bioinformatics medical AI" aria-describedby="keywordHelp"><div id="keywordHelp" class="note">Separate concepts with spaces or commas. Add a disease, method, or institute to narrow the search.</div></div>
+        <div class="field"><label for="stage">Opportunity type</label><select id="stage"><option value="all">All opportunities</option><option value="postdoc">Postdoctoral / research</option><option value="intern">Internships / student</option><option value="fellowship">Fellowships</option></select></div>
+      </div>
+      <div class="actions"><button class="button" id="runScout">Run funding scout</button><label class="check"><input id="resident" type="checkbox" checked> I am a U.S. permanent resident</label><span class="status" id="status" role="status">Ready to search official sources.</span></div>
+      <p class="note">Permanent-resident status can make you eligible for many U.S. opportunities, but eligibility is controlled by each announcement. Always confirm the citizenship, degree, and appointment rules in the official notice.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Official starting points</h2>
+    <div class="cards">
+      <article class="card"><span class="pill">NIH · postdoc</span><h3><a href="https://www.training.nih.gov/jobs/" target="_blank" rel="noopener">NIH OITE job listings</a></h3><p>Current NIH postdoctoral and research-training openings, searchable by focus area and position type.</p><div class="meta">Applications are generally made directly to the PI or research group.</div></article>
+      <article class="card"><span class="pill">NIH · fellowships</span><h3><a href="https://researchtraining.nih.gov/career/postdoctoral-residency" target="_blank" rel="noopener">NIH postdoctoral funding</a></h3><p>Official NIH postdoctoral training and individual-award pathways, including F32 and K-series programs.</p><div class="meta">Check the current funding opportunity and NIH institute requirements.</div></article>
+      <article class="card"><span class="pill">NSF · funding</span><h3><a href="https://www.nsf.gov/funding" target="_blank" rel="noopener">NSF funding search</a></h3><p>NSF grants, fellowships, cooperative agreements, and postdoctoral or early-career resources.</p><div class="meta">Use your keywords in NSF Funding Search for active solicitations.</div></article>
+      <article class="card"><span class="pill">NSF · internship</span><h3><a href="https://www.nsf.gov/funding/initiatives/reu" target="_blank" rel="noopener">NSF Research Experiences for Undergraduates</a></h3><p>NSF-supported research opportunities hosted by universities and research organizations.</p><div class="meta">Individual REU sites set their own enrollment and eligibility rules.</div></article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Live Grants.gov matches</h2>
+    <div id="results" class="empty">Run the scout to retrieve currently posted or forecasted NIH and NSF opportunities.</div>
+    <p class="note">Results are fetched from the public Grants.gov Applicant API. If a browser or network blocks the API request, use the official starting points above.</p>
+  </section>
+
+  <div class="footer">Built for Koushik's opportunity search · <a href="index.html">Back to profile</a></div>
+</main>
+<script>
+  const $ = (id) => document.getElementById(id);
+  const themes = {dark:'🌞 Light', light:'🌙 Dark'};
+  const savedTheme = localStorage.getItem('fund-theme') || 'light';
+  document.documentElement.dataset.theme = savedTheme === 'dark' ? 'dark' : 'light';
+  $('themeToggle').textContent = themes[document.documentElement.dataset.theme];
+  $('themeToggle').addEventListener('click', () => { const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'; document.documentElement.dataset.theme = next; localStorage.setItem('fund-theme', next); $('themeToggle').textContent = themes[next]; });
+
+  const officialLinks = {
+    NIH: 'https://www.training.nih.gov/jobs/',
+    NSF: 'https://www.nsf.gov/funding',
+    Grants: 'https://www.grants.gov/search-results'
+  };
+  function grantUrl(id){ return `https://www.grants.gov/search-results-detail/${encodeURIComponent(id)}`; }
+  function render(results, message){
+    const box = $('results');
+    if (!results.length) { box.innerHTML = `<p class="empty">${message}</p><p class="note"><a href="${officialLinks.Grants}" target="_blank" rel="noopener">Open Grants.gov search</a> · <a href="${officialLinks.NIH}" target="_blank" rel="noopener">Open NIH jobs</a> · <a href="${officialLinks.NSF}" target="_blank" rel="noopener">Open NSF funding</a></p>`; return; }
+    box.innerHTML = results.map(item => `<article class="result"><h3><a href="${grantUrl(item.id)}" target="_blank" rel="noopener">${item.title || 'Untitled opportunity'}</a></h3><p>${item.agencyName || item.agencyCode || 'Federal agency'} · ${item.oppStatus || 'status unavailable'}${item.closeDate ? ` · deadline ${item.closeDate}` : ''}</p><div class="meta">${item.number || ''}</div></article>`).join('');
+  }
+  async function searchGrants(agency, keyword){
+    const response = await fetch('https://api.grants.gov/v1/api/search2', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({rows:12, keyword, agencies:agency, oppStatuses:'forecasted|posted', sortBy:'openDate|desc'})});
+    if (!response.ok) throw new Error(`Grants.gov returned ${response.status}`);
+    const data = await response.json();
+    return data?.data?.oppHits || [];
+  }
+  $('runScout').addEventListener('click', async () => {
+    const button = $('runScout'); const keywords = $('keywords').value.trim() || 'machine learning biomedical AI genomics'; const stage = $('stage').value; const resident = $('resident').checked;
+    button.disabled = true; $('status').textContent = 'Searching NIH and NSF through Grants.gov…'; $('results').innerHTML = '<p class="empty">Contacting the official opportunity search…</p>';
+    const stageTerms = stage === 'postdoc' ? ' postdoctoral research fellowship' : stage === 'intern' ? ' internship student research' : stage === 'fellowship' ? ' fellowship' : '';
+    try {
+      const [nih, nsf] = await Promise.all([searchGrants('HHS-NIH11', `${keywords}${stageTerms}`), searchGrants('NSF', `${keywords}${stageTerms}`)]);
+      const unique = [...new Map([...nih, ...nsf].map(item => [item.id, item])).values()];
+      $('status').textContent = `${unique.length} live match${unique.length === 1 ? '' : 'es'} found${resident ? ' · permanent-resident filter noted' : ''}.`;
+      render(unique, 'No current API matches for these terms. Try broader keywords or the official searches above.');
+    } catch (error) {
+      $('status').textContent = 'Live API search unavailable; official links are ready.'; render([], 'The live search could not be reached from this browser.');
+    } finally { button.disabled = false; }
+  });
+</script>
+</body>
+</html>
