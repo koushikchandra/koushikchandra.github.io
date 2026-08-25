@@ -107,6 +107,11 @@
   .entry ul{margin:0.4rem 0 0;padding-left:1.2rem;color:var(--text-dim);font-size:0.95rem}
   .entry ul li{margin-bottom:0.2rem}
 
+  .research-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin-top:1.4rem}
+  .research-card{background:var(--bg-alt);border:1px solid var(--border);border-radius:10px;padding:1rem 1.1rem}
+  .research-card h3{margin:0 0 0.4rem;font-size:0.92rem;color:var(--accent)}
+  .research-card p{margin:0;color:var(--text-dim);font-size:0.88rem}
+
   .pub-year{font-size:0.85rem;color:var(--text-dim);margin:1.4rem 0 0.6rem;font-weight:600}
   .pub-year:first-of-type{margin-top:0}
   .pub{border-left:3px solid var(--accent);padding-left:0.9rem;margin-bottom:1rem}
@@ -164,14 +169,32 @@
   <section id="about">
     <h2>About</h2>
     <p>
-      Data scientist and computer science PhD candidate with over five years of experience in machine
-      learning, large-scale data analysis, and data visualization. Currently an NSF D4 NRT Fellow at
-      Iowa State University, working at the intersection of machine learning, large language models,
-      multi-modal systems, and biomedical data. Skilled in building data processing pipelines,
-      validating datasets, and developing visualization and analytical tools that turn complex data into
-      actionable insight &mdash; with research interests spanning AI in medicine, deep learning, and
-      real-world systems such as industrial monitoring and operational analytics.
+      I am a PhD candidate in Computer Science at Iowa State University and an NSF D4 NRT Fellow,
+      working at the intersection of machine learning and biomedical data. My research asks how
+      multi-modal deep learning, transfer learning, and safety-oriented evaluation frameworks can make
+      AI systems more reliable for real clinical and scientific use &mdash; from genomic pathway modeling
+      to multi-agent evaluation of medical AI. My work has appeared in venues including IEEE BIBM,
+      ACM-BCB, and <em>Health Information Science and Systems</em>, and is supported by an NSF D4 NRT
+      Fellowship.
     </p>
+
+    <div class="research-grid">
+      <div class="research-card">
+        <h3>Multi-modal &amp; Genomic ML for Medicine</h3>
+        <p>Contrastive pre-training across X-rays, ECGs, and clinical reports; graph-based pathway
+        embeddings and biology-guided architectures for cancer prognosis and genomic learning.</p>
+      </div>
+      <div class="research-card">
+        <h3>Trustworthy &amp; Safe Medical AI</h3>
+        <p>Multi-agent evaluation loops and iterative refinement to improve the safety, trustworthiness,
+        and reliability of AI systems used in medicine.</p>
+      </div>
+      <div class="research-card">
+        <h3>Transfer Learning &amp; Clinical NLP</h3>
+        <p>Transfer learning analysis on histopathology imaging, and BERT-based extraction of clinically
+        relevant information from patient notes and biomedical text.</p>
+      </div>
+    </div>
   </section>
 
   <section id="education">
